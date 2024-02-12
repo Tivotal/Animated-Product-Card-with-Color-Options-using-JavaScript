@@ -1,0 +1,192 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --degree: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+}
+
+.card {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: #fff;
+  box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #add102;
+  top: 0;
+  left: 0;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s;
+  filter: hue-rotate(calc(var(--degree) * 90deg));
+}
+
+.card:hover:before {
+  clip-path: circle(300px at 80% -20%);
+}
+
+.card:after {
+  position: absolute;
+  content: "Nike";
+  top: 30%;
+  left: -5%;
+  font-size: 140px;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.card .image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.card:hover .image {
+  top: 0%;
+  transform: translateY(-25%);
+}
+
+.card .image img {
+  position: absolute;
+  width: 270px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  filter: hue-rotate(calc(var(--degree) * 90deg));
+}
+
+.card .content {
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  transition: 1s;
+  z-index: 11;
+}
+
+.card:hover .content {
+  height: 210px;
+}
+
+.card .content h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.card .content div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card:hover .content div {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.card .content h3 {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.card .content .size span {
+  width: 26px;
+  height: 26px;
+  background: #f2f2f2;
+  margin: 0 5px;
+  border-radius: 4px;
+  color: #222;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.card .content .size span:hover {
+  background: #222;
+  color: #f2f2f2;
+}
+
+.card .content .color span {
+  width: 20px;
+  height: 20px;
+  background: #add102;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.card .content .color span.active {
+  box-shadow: 0 0 0 1px #000;
+}
+
+.card .content .color span:nth-child(3) {
+  background: #02f0c8;
+}
+
+.card .content .color span:nth-child(4) {
+  background: #c6a1ff;
+}
+
+.card .content a {
+  display: inline-block;
+  text-decoration: none;
+  background: #222;
+  color: #f2f2f2;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+}
+
+.card:hover .content a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.7s;
+}
